@@ -14,17 +14,17 @@ int main(){
 
     arq1 = fopen("strassen.txt", "w");
     if(arq1==NULL){
-        printf("Arquivo 1 n„o abriu.\n");
+        printf("Arquivo 1 n√£o abriu.\n");
         return 1;
     }
     arq2 = fopen("tradicional.txt", "w");
     if(arq2==NULL){
-        printf("Arquivo 2 n„o abriu.\n");
+        printf("Arquivo 2 n√£o abriu.\n");
         return 1;
     }
 
     for(i=0;i<30;i++){
-        /* GERA MATRIZES ALEAT”RIAS */
+        /* GERA MATRIZES ALEAT√ìRIAS */
         mat1 = gerar_matriz(TAM);
         mat1 = insere_valores(mat1,TAM);
         mat2 = gerar_matriz(TAM);
@@ -32,12 +32,13 @@ int main(){
         mat3 = gerar_matriz(TAM);
 
 
-        /* MULTIPLICA«√O COM ALGORITMO DE STRASSEN */
+        /* MULTIPLICA√á√ÉO COM ALGORITMO DE STRASSEN */
         t = clock();
         mat3 = strassen(mat1,mat2,mat3,TAM);
         t = clock() - t;
         fprintf(arq1,"%f\n",((float)t)/CLOCKS_PER_SEC);
-
+        
+        /* MULTIPLICA√á√ÉO COM ALGORITMO TRADICIONAL */
         t = clock();
         mat3 = multiplica_matriz(mat1,mat2,TAM);
         t = clock() - t;
